@@ -5,9 +5,22 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
+    title: "Syllable – AI-Powered Learning Roadmap Builder",
+    stack: ["Node.js", "Express.js", "PostgreSQL", "Prisma", "Redis", "Gemini API", "Docker"],
+    github: "https://github.com/Hirdy0903/syllable",
+    link: "https://syllable-rust.vercel.app/login",
+    features: [
+      "AI-powered personalized learning roadmaps using Gemini AI",
+      "JWT authentication & persistent storage with PostgreSQL/Prisma",
+      "Redis caching & BullMQ job queues for workflow optimization",
+      "Containerized with Docker, deployed via Vercel/Render/Neon/Upstash"
+    ]
+  },
+  {
     title: "Jira-Like Multi-Tenant SaaS Platform",
     stack: ["Node.js", "Express.js", "MongoDB", "JWT", "React"],
     github: "https://github.com/Hirdy0903/MTAP",
+    link: "https://multitenant-theta.vercel.app/dashboard",
     features: [
       "Multi-tenant architecture",
       "JWT Authentication & RBAC middleware",
@@ -20,24 +33,13 @@ const projects = [
     title: "Blog Application",
     stack: ["Node.js", "Express.js", "MongoDB", "EJS"],
     github: "https://github.com/Hirdy0903/BLOGIFY",
+    link: "https://blogify-eight-liart.vercel.app/",
     features: [
       "JWT Authentication",
       "Blog CRUD",
       "Image Uploads",
       "Cookie Sessions",
       "Server Side Rendering"
-    ]
-  },
-  {
-    title: "Student Mental Health Tracker",
-    stack: ["React", "Node.js", "Express.js", "MongoDB"],
-    github: "https://github.com/Hirdy0903/a-healthy-way-",
-    features: [
-      "Mood Tracking",
-      "Analytics Dashboard",
-      "JWT Security",
-      "User-specific Data Access",
-      "MongoDB Data Modeling"
     ]
   }
 ];
@@ -83,9 +85,16 @@ export default function ProjectsSection() {
                   ))}
                 </ul>
                 <div className="flex gap-4">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
-                    <Github size={16} /> GitHub
-                  </a>
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
+                      <Github size={16} /> GitHub
+                    </a>
+                  )}
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
+                      <ExternalLink size={16} /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
